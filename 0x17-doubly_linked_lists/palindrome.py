@@ -5,7 +5,5 @@ def ispalindrome(n):
 
 array = []
 for i in range(999, 99, -1):
-    for j in range(i, 99, -1):
-        if ispalindrome(i * j):
-            array.append(i * j)
+    array.extend(i * j for j in range(i, 99, -1) if ispalindrome(i * j))
 print(max(array))
